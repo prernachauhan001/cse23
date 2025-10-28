@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Timetable-CSE Department</title>
+    <style>
+    Body {
+        font-family: 'Times New Roman', Times, serif;
+        padding: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+    }
+
+    .timetable-wrap{
+        width: 1100px;
+        border: 4px solid #444;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    h1.title{
+        text-align: center;
+        margin: 6px 0 14px 0;
+        font-size:28px ;
+        font-weight: 600;
+    }
+
+    table.timetable{
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    table.timetable th,
+    table.timetable td{
+        border: 2px solid#333;
+        padding: 10px 8px;
+        vertical-align: middle;
+        text-align: center;
+        word-wrap: break-word;
+    }
+
+    table.timetable th{
+        background: #fff;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .day-cell{
+        font-weight: 700;
+        text-align: left;
+        padding-left: 14px;
+        font-size: 16px;
+        width: 12%;
+    }
+
+    /*small nested lab details table*/
+    .lab-box{
+      width: 100%;
+      height: 100%;
+      box-sizing:border-box;
+      padding: 6px;
+    }
+
+    .lab-title{
+        font-weight: 700;
+        border: 2px solid#333;
+        padding: 8px;
+        margin-bottom: 6px;
+        background: #fafafa;
+        text-align: center;
+    }
+
+    .lab-table{
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    .lab-table td{
+        border: 1px solid#333;
+        padding: 6px;
+        text-align: center;
+    }
+
+    /* Make big empty cells look similar to image (slihtly taller)*/
+    td.tall{height: 78px;}
+
+    /* smaller font for multi-line entries*/
+    .multi-line{line-height: 1.1; font-size: 15px;}
+
+    /* visually emphasize break cells*/
+    .break {font-weight: 600;}
+
+    /*responsive*/
+    @media (max-width:1200px){
+        .timetable-wrap{width: 95%;}
+    }
+</style>
+</head>
+<body>
+
+<div class="timetable-wrap">
+<h1 class="title">College Timetable-CSE Departments</h1>
+
+<table class="timetable" aria-label="College timetable">
+    
+<thead>
+<tr>
+<th style="width:12%;"> Day/Time</th>
+<th>9:00-10:00</th>
+<th>10:00-11:00</th>
+<th>11:00-12:00</th>
+<th>12:00-1:00</th>
+<th>1:00-2:00</th>
+<th>2:00-3:00</th>
+<th>3:00-4:00</th>
+</tr>
+</thead>
+<!--MONDAY-->
+<tr>
+<td class="day-cell">MONDAY</td>
+<td class="tall"></td>
+<td class="tall"> English</td>
+<td class="tall"></td>
+<td class="tall break">Break</td>
+<td class="tall">Computer Lab</td>
+<td class="tall"></td>
+<td class="tall">Sports</td>
+</tr>
+
+<!-- TUESDAY -->
+<!-- Physics cell spans Tue-Fri in 11:00-12:00 -->
+<tr>
+<td class="day-cell">Tuesday</td> 
+<td class="tall">Mathematics</td>
+<td class="tall multi-line">C<br>Programming</td>
+<id class="tall" rowspan="4" style="vertical-align:middle;">Physics</td>
+<td class="tall break">Break</td> 
+<td class="tall">Electronic Lab</td>
+<td class="tall">Library</td>
+<td class="tall"></td>
+</tr>
+
+<!-- WEDNESDAY -->
+ <tr>
+<td class="day-cell">Wednesday</td>
+<td class="tall">Mathematics</td>
+<td class="tall">English</td>
+
+<!-- 11-12 occupied by Physics rowspan -->
+<td class="tall break">Break</td>
+<td class="tall">Computer<br>Networks</td>
+
+<!-- Lab Details box spans the last two columns (2:00-3:00 and 3:00-4:00) --> 
+<td class="tall" colspan="2">
+<div class="lab-box">
+<div class="lab-title">Lab Details</div>
+<table class="lab-table" aria-label="Lab details">
+<tr>
+<td>Batch</td>
+<td>DBMS</td>
+</tr>
+<tr>
+<td style="font-weight:600;">A</td>
+<td>Lab</td>
+</tr>
+<td style="font-weight:600;">B</td> 
+<d>OS Lab</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+
+<!-- THURSDAY -->
+<tr>
+<td class="day-cell">Thursday</td>
+<td class="tall"> Workshop</td>
+<td class="tall"></td>
+<!-- 11-12 Physics cell continues here (rowspan from Tue) --> 
+<td class="tall break">Break</td>
+<td class="tall">Mathematics</td>
+<td class="tall">English</td>
+<td class="tall">Seminar</td>
+</tr>
+
+<!-- FRIDAY -->
+<tr>
+<td class="day-cell">Friday</td>
+<td class="tall multi-line">Computer<br>Networks</td>
+<td class="tall">English</td>
+<!--11-12 Physics(last row of the rowspan)-->
+
+<td class="tall break">Break</td>
+<td class="tall">Project Work</td>
+<td class="tall"></td>
+<td class="tall"></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</body>
+
+    </style>
